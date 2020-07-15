@@ -65,7 +65,7 @@ func (server *Server) GetUsers(w http.ResponseWriter, r *http.Request) {
 
 func (server *Server) GetUser(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	uid, err := strconv.ParseInt(vars["id"], 10, 32)
+	uid, err := strconv.ParseUint(vars["id"], 10, 32)
 
 	if err != nil {
 		responses.ERROR(w, http.StatusBadRequest, err)
